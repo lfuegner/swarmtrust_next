@@ -1,0 +1,10 @@
+@use "./abstract" as a;
+
+.body{
+    display: flex;
+}
+
+.main{
+    position: relative;
+    padding-top: a.$header-height;
+}

@@ -1,0 +1,52 @@
+@use "./abstract" as a;
+.main{
+    
+    display:flex;
+}
+.containerPoap{
+    padding-top: a.$header-height;
+    background-color: a.$watch-poap-bg-color;
+    height: 100vh;
+    width:70vw;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.containerFilter{
+    padding-top: a.$header-height;
+    background-color: a.$watch-filter-bg-color;
+    height: 100vh;
+    width: 30vw;
+    opacity: 95%;
+}
+
+.poap{
+    color: a.$font-color-white
+}
+
+.text{
+    color: a.$font-color-white
+}
+.traitWrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.trait{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: a.$font-color-white;
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.separator{
+    opacity: 0.6;
+    border-color: #303030;
+    border-style: solid;
+    width: 100%;
+    border-bottom-width: 1px;
+}

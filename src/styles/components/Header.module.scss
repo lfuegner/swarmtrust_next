@@ -1,0 +1,124 @@
+@use "../abstract" as a;
+
+.header{
+    width: 100vw;
+    height: a.$header-height;
+    //background-color: a.$header-background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    aspect-ratio: 1960/64;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../../../public/header.svg');
+}
+
+@media (min-width: a.$breakpoint-header){
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1280px;
+        padding-left: 38px;
+        padding-right: 38px;
+        
+        
+    }
+}
+
+.container2{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 40;    
+}
+
+.container3{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: a.$header-height;
+}
+
+@media (min-width: a.$breakpoint-header){
+.list{
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0;
+
+}
+}
+
+.link{
+    position: relative;
+    width:100%;
+    text-align: left;
+    text-decoration: none;
+    
+    color: a.$header-font-color;
+    
+    
+}
+
+@media (min-width: a.$breakpoint-header){
+    .link{
+        position: relative;
+        width: 100%;
+        text-align: left;
+        border-radius: 0.375rem;
+        display: block;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        padding-left: .875rem;
+        padding-right: .875rem;
+        font-weight: a.$font-medium;
+        font-size: .875rem;
+        line-height: 1.25rem;
+
+
+    }
+
+}
+
+.hamburger{
+    position:relative;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+@media (min-width: a.$breakpoint-header){
+    .hamburger{
+        display: none;
+    }
+    
+}
+
+.bar{
+    color: black;
+    width: 10px;
+    height: 1px;
+    z-index: 10;
+}
+
+.logo{
+    text-decoration: none;
+}
