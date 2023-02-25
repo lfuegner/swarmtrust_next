@@ -3,7 +3,7 @@
 .header{
     width: 100vw;
     height: a.$header-height;
-    //background-color: a.$header-background-color;
+    background-color: a.$header-background-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,71 +11,70 @@
     z-index: 999;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    aspect-ratio: 1960/64;
+    height: 4rem;
+
+    //aspect-ratio: 1960/64;
+    //background-repeat: no-repeat;
+    //background-position: center;
+    //background-size: cover;
+    //background-image: url('../../../public/header.svg');
+}
+
+.wrapper{
     width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url('../../../public/header.svg');
+    padding-left: 38px;
+    padding-right: 38px;
+
 }
 
 @media (min-width: a.$breakpoint-header){
-    .container{
+    .wrapper{
         margin-left: auto;
         margin-right: auto;
         max-width: 1280px;
-        padding-left: 38px;
-        padding-right: 38px;
-        
-        
     }
 }
 
-.container2{
+.container{
     position: relative;
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
     align-items: center;
     z-index: 40;    
 }
 
-.container3{
+.containerLogoNavR{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.list{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding-top: a.$header-height;
-}
-
-@media (min-width: a.$breakpoint-header){
-.list{
     flex-direction: row;
-    align-items: center;
-    padding-top: 0;
-
-}
 }
 
-.link{
-    position: relative;
-    width:100%;
-    text-align: left;
+//******* Logo *******
+
+.logo{
     text-decoration: none;
-    
-    color: a.$header-font-color;
-    
-    
 }
+
+
+//******* Navbar Row *******
+.containerNavR{
+    display: flex;
+}
+.navR{display: none;}
 
 @media (min-width: a.$breakpoint-header){
-    .link{
+    .navR{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        padding-top: 0;
+    }
+    
+    .navRLink{
         position: relative;
         width: 100%;
         text-align: left;
@@ -88,11 +87,21 @@
         font-weight: a.$font-medium;
         font-size: .875rem;
         line-height: 1.25rem;
-
-
+        text-decoration: none;
+        color: a.$header-font-color;   
     }
-
 }
+
+//******* Metamask Button *******
+
+.containerMetamask{display: none}
+
+@media (min-width: a.$breakpoint-header){
+    .containerMetamask{display: flex;}
+}
+
+
+//******* Hamburger *******
 
 .hamburger{
     position:relative;
@@ -105,13 +114,6 @@
     z-index: 10;
 }
 
-@media (min-width: a.$breakpoint-header){
-    .hamburger{
-        display: none;
-    }
-    
-}
-
 .bar{
     color: black;
     width: 10px;
@@ -119,6 +121,9 @@
     z-index: 10;
 }
 
-.logo{
-    text-decoration: none;
+@media (min-width: a.$breakpoint-header){
+    .hamburger{display: none;}
 }
+
+
+

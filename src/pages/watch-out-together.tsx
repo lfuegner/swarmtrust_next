@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Header from '../components/header'
 import Showroom from '../components/showroom'
 import styles from '../styles/Watch-out-together.module.scss'
+import {Trait} from '../components/traits'
 
 export default function WatchOutTogether() {
   const [defaultText, setDefaultText] = React.useState<string>('')
@@ -40,43 +41,7 @@ export default function WatchOutTogether() {
 
           </div>
           <div className={styles.containerFilter}>
-
-            {/* Trait 1 */}
-           <div className={styles.traitWrapper}>
-                <div className={styles.trait}>
-                    <h3>Trait 1</h3>
-                    <button onClick={setInfoText}>Arrow</button>
-                </div>
-                <div>
-
-                </div>
-                <hr className={styles.separator}></hr>
-            </div>
-
-            {/* Trait 2 */}
-            <div className={styles.traitWrapper}>
-                <div className={styles.trait}>
-                    <h3>Trait 2</h3>
-                    <button>Arrow</button>
-                </div>
-                <div>
-
-                </div>
-                <hr className={styles.separator}></hr>
-            </div>
-            
-            {/* Trait 3 */}
-            <div className={styles.traitWrapper}>
-                <div className={styles.trait}>
-                    <h3>Trait 3</h3>
-                    <button>Arrow</button>
-                </div>
-                <div>
-
-                </div>
-                <hr className={styles.separator}></hr>
-            </div>
-            
+            <Trait/>
           </div>
 
         
