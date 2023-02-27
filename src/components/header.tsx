@@ -1,16 +1,45 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/components/Header.module.scss'
+import { MetaMaskInpageProvider } from '@metamask/providers';
 import { useState } from 'react'
 
 
 export default function Header () {
+
+    
 
     const [hamburgerSwitchToggled, setHamburgerSwitchToggeld] = useState(false)
 
     const showNavbar = () => {
         hamburgerSwitchToggled? setHamburgerSwitchToggeld(false) : setHamburgerSwitchToggeld(true);
     }
+    const adresse:string = "0x4543"
+
+    //Metamask Wallet Button
+
+    const [defaultAccount, setDefaultAccount] = useState<string | null>(null)
+    const [errorMessage, setErrorMessage] = useState<string | null>(null)
+    const [isMetamaskInstalled, setIsMetamaskInstalled] = useState<boolean>(false)
+
+    const isWalletConnected = async () => {
+
+    }
+
+    const connectWallet = async() => {
+  
+        const result = await ethereum.request<string[]>({method: 'eth_requestAccounts'})
+        if(result){
+          accountChangeHandler(result[0])
+          console.log(result)
+        }
+
+    }
+
+    const accountChangeHandler = (newAccount:any) => {
+        setDefaultAccount(newAccount);
+      }
+    
     return (
         <header className={styles.header}>
             <div className={styles.wrapper}>
@@ -18,7 +47,7 @@ export default function Header () {
                     <div className={styles.containerLogoNav}>
                         <Logo/>
                         {/*Navbar*/}
-                        <div className={hamburgerSwitchToggled ? styles.containerNav : styles.nothidden}>
+                        <div className={styles.containerNav}>
                             <ul className={styles.nav}>
                                 <li>
                                     <Link href = "/watch-out-together" className={styles.navLink}>Watch Out Together</Link>
@@ -33,11 +62,15 @@ export default function Header () {
                                     <Link href = "/privacy" className={styles.navLink}>Privacy</Link>
                                 </li>
                             </ul>
+
+                            <div className={styles.navWallet}>
+                                <h1>Wallet: {defaultAccount}</h1>
+                                <button>Metamask</button>
+                            </div>
                         <div>
-                <button hidden>Metamask</button>
-            </div>
-        </div>
                     </div>
+                </div>
+            </div>
                     <button 
                     className={styles.hamburger}
                     onClick={showNavbar}>
@@ -45,11 +78,16 @@ export default function Header () {
                           
                         </span>
                     </button>
-                    <ConnectMetamask/>
-                </div>
+                    
+            <div className={styles.containerMetamask}>
+                <h1>Wallet: {defaultAccount}</h1>
+                {/*Metamask Connect Button*/}
+                <button onClick={connectWallet}>Connect Metamask</button>
             </div>
+        </div>
+    </div>
 
-        </header>
+</header>
     )
 }
 
@@ -58,7 +96,7 @@ function Logo(){
         <Link href = "/" className={styles.logo}>
             <span className={styles.spanL}>
                 <Image
-                src="/Swarmtrustbanner.svg" 
+                src="/Rastergrafik.svg" 
                 alt=" Swarmtrust Logo"
                 width={128}
                 height={36}
@@ -67,15 +105,6 @@ function Logo(){
             </span>
         </Link>
 
-    )
-}
-
-function ConnectMetamask(){
-    return(
-        <div className={styles.containerMetamask}>
-            {/*Metamask Connect Button*/}
-            <button>Connect Metamask</button>
-        </div>
     )
 }
 

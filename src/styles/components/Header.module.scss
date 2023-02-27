@@ -49,30 +49,36 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;
 }
 
 //******* Logo *******
 
 .logo{
     text-decoration: none;
+    z-index: 20;
 }
 
 
 //******* Navbar Row *******
 .containerNav{
     position:fixed;
+    top:0;
+    left:0;
+    right:0;
     display:flex;
     flex-direction: column;
+    justify-content: flex-start;
+    background-color: a.$header-background-color;
+    color: a.$header-font-color
 }
 
 .nav{
-    display: none;
+    display: flex;
     justify-content: flex-start;
     flex-direction: column;
     padding-top: 4rem;
+    
 }
-.nothidden{display: flex;}
 
 .navLink{
     position: relative;
@@ -89,12 +95,29 @@
     line-height: 1.25rem;
     text-decoration: none;
     color: a.$header-font-color;  
-    font-weight: a.$header-font-weight; 
+    font-weight: a.$header-font-weight;
+    font-family: a.$font; 
+    opacity: .75;
+
+    &:hover{
+        opacity: 1;
+    }
 }
 
-//.nav{display: none;}
+.navWallet{
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content:space-evenly ;
+    gap:1.5rem;
 
-@media (min-width: a.$breakpoint-header){
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 38px;
+    padding-right: 38px;
+}
+
+@media (min-width: a.$breakpoint-header){ //Bildschirm breiter als 1024px
     .containerNav{
         display: flex;
         position: relative;
@@ -108,6 +131,9 @@
         padding-top: 0;
     }
     
+    .navWallet{
+        display:none;
+    }
     
 }
 
