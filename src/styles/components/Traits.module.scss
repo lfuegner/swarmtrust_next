@@ -36,6 +36,10 @@
     opacity: 50%;
 }
 
+.hidden{
+    display: none;
+}
+
 .input{
     border: 0px;
     height: 1px;
@@ -52,7 +56,7 @@
     font-size: 0.875rem;
     font-weight: 600;
     border-radius: 0.5rem;
-    background-color: white;
+    background-color: #303030;
 }
 
 .radiogroup{

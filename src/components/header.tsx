@@ -1,18 +1,50 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/components/Header.module.scss'
+import { useState } from 'react'
 
 
 export default function Header () {
+
+    const [hamburgerSwitchToggled, setHamburgerSwitchToggeld] = useState(false)
+
+    const showNavbar = () => {
+        hamburgerSwitchToggled? setHamburgerSwitchToggeld(false) : setHamburgerSwitchToggeld(true);
+    }
     return (
         <header className={styles.header}>
             <div className={styles.wrapper}>
                 <div className={styles.container}>
-                    <div className={styles.containerLogoNavR}>
+                    <div className={styles.containerLogoNav}>
                         <Logo/>
-                        <NavbarRow/>
+                        {/*Navbar*/}
+                        <div className={hamburgerSwitchToggled ? styles.containerNav : styles.nothidden}>
+                            <ul className={styles.nav}>
+                                <li>
+                                    <Link href = "/watch-out-together" className={styles.navLink}>Watch Out Together</Link>
+                                </li>
+                                <li>
+                                    <Link href = "/certification" className={styles.navLink}>Certification</Link>
+                                </li>
+                                <li>
+                                    <Link href = "/about" className={styles.navLink}>About</Link>
+                                </li>
+                                <li>
+                                    <Link href = "/privacy" className={styles.navLink}>Privacy</Link>
+                                </li>
+                            </ul>
+                        <div>
+                <button hidden>Metamask</button>
+            </div>
+        </div>
                     </div>
-                    <Hamburger/>
+                    <button 
+                    className={styles.hamburger}
+                    onClick={showNavbar}>
+                        <span className={styles.bar}>
+                          
+                        </span>
+                    </button>
                     <ConnectMetamask/>
                 </div>
             </div>
@@ -35,37 +67,6 @@ function Logo(){
             </span>
         </Link>
 
-    )
-}
-
-function NavbarRow(){
-    return(
-        <div className={styles.containerNavR}>
-            <ul className={styles.navR}>
-                <li>
-                    <Link href = "/watch-out-together" className={styles.navRLink}>Watch Out Together</Link>
-                </li>
-                <li>
-                    <Link href = "/certification" className={styles.navRLink}>Certification</Link>
-                </li>
-                <li>
-                    <Link href = "/about" className={styles.navRLink}>About</Link>
-                </li>
-                <li>
-                    <Link href = "/privacy" className={styles.navRLink}>Privacy</Link>
-                </li>
-            </ul>
-        </div>
-    )
-}
-
-function Hamburger(){
-    return(
-        <button className={styles.hamburger}>
-            <span className={styles.bar}>
-                            
-            </span>
-        </button>
     )
 }
 

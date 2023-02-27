@@ -4,7 +4,7 @@ import {useGLTF, Stage, PresentationControls } from "@react-three/drei"
 
 //change any
 function Model(props:any) {
-    const {scene} = useGLTF("/Poap2.glb");
+    const {scene} = useGLTF("/Poap.glb");
     return <primitive object={scene} {...props} />
   }
 
