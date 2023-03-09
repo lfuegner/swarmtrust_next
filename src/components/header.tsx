@@ -18,7 +18,7 @@ export default function Header () {
 
     //Metamask Wallet Button
 
-    const [defaultAccount, setDefaultAccount] = useState<string | null>(null)
+    const [defaultAccount, setDefaultAccount] = useState<string | null>('Connect Metamask')
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
     const [isMetamaskInstalled, setIsMetamaskInstalled] = useState<boolean>(false)
 
@@ -49,23 +49,25 @@ export default function Header () {
                         {/*Navbar*/}
                         <div className={styles.containerNav}>
                             <ul className={styles.nav}>
-                                <li>
-                                    <Link href = "/watch-out-together" className={styles.navLink}>Watch Out Together</Link>
+                                <li className={styles.navItem}>
+                                    <Link href = "/mint" className={styles.navLink}>Mint</Link>
                                 </li>
-                                <li>
+                                <li className={styles.navItem}>
                                     <Link href = "/certification" className={styles.navLink}>Certification</Link>
                                 </li>
-                                <li>
+                                <li className={styles.navItem}>
                                     <Link href = "/about" className={styles.navLink}>About</Link>
                                 </li>
-                                <li>
+                                <li className={styles.navItem}>
                                     <Link href = "/privacy" className={styles.navLink}>Privacy</Link>
                                 </li>
                             </ul>
 
                             <div className={styles.navWallet}>
-                                <h1>Wallet: {defaultAccount}</h1>
-                                <button>Metamask</button>
+                                <button 
+                                className={styles.navButton}
+                                onClick={connectWallet}
+                                >{defaultAccount}</button>
                             </div>
                         <div>
                     </div>
@@ -80,9 +82,10 @@ export default function Header () {
                     </button>
                     
             <div className={styles.containerMetamask}>
-                <h1>Wallet: {defaultAccount}</h1>
-                {/*Metamask Connect Button*/}
-                <button onClick={connectWallet}>Connect Metamask</button>
+                <button 
+                className={styles.navButton}
+                onClick={connectWallet}
+                >{defaultAccount}</button>
             </div>
         </div>
     </div>
