@@ -53,13 +53,13 @@ export default function Header () {
                                     <Link href = "/mint" className={styles.navLink}>Mint</Link>
                                 </li>
                                 <li className={styles.navItem}>
-                                    <Link href = "/certification" className={styles.navLink}>Certification</Link>
+                                    <Link href = "/impressum" className={styles.navLink}>Certification</Link>
                                 </li>
                                 <li className={styles.navItem}>
-                                    <Link href = "/about" className={styles.navLink}>About</Link>
+                                    <Link href = "/gdpr" className={styles.navLink}>GDPR</Link>
                                 </li>
                                 <li className={styles.navItem}>
-                                    <Link href = "/privacy" className={styles.navLink}>Privacy</Link>
+                                    <Link href = "/" className={styles.navLink}>Impressum</Link>
                                 </li>
                             </ul>
 
