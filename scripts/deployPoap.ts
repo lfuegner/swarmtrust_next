@@ -10,7 +10,7 @@ async function main() {
   const lockedAmount = ethers.utils.parseEther("0.001");
 
   const Poap = await ethers.getContractFactory("Poap");
-  const poap = await Poap.deploy(unlockTime, { value: lockedAmount });
+  const poap = await Poap.deploy(/* unlockTime, { value: lockedAmount } */);
 
   await poap.deployed();
 
